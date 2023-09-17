@@ -1,0 +1,15 @@
+<tr>
+  <td>{{ task.task }}</td>
+  <td>
+    <!-- prettier-ignore -->
+    <input type="checkbox" name="status" id="status" {% if task.status %}checked{% endif %}>
+  </td>
+  <td
+    hx-delete="/tasks/{{ task.id }}"
+    hx-trigger="click"
+    hx-target="closest tr"
+    hx-swap="outerHTML"
+  >
+    x
+  </td>
+</tr>

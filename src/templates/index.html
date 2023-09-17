@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/main.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+  </head>
+  <body>
+    <header>
+      <h1>PyList</h1>
+    </header>
+    <main>
+      <form
+        id="task-form"
+        hx-post="/tasks"
+        hx-target="#task-list"
+        hx-swap="beforeend"
+      >
+        <input
+          type="text"
+          name="task"
+          id="task"
+          placeholder="Add Task..."
+          required
+        />
+        <input type="submit" value="Submit" />
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="task-list" hx-get="/tasks" hx-trigger="load" />
+      </table>
+    </main>
+  </body>
+</html>
